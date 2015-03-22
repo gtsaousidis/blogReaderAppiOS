@@ -19,6 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+   
+    [self loadData];
+    
+    //initialise the refresh controller
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    //set the title for pull request
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"pull to Refresh"];
+    //call he refresh function
+    [self.refreshControl addTarget:self action:@selector(refreshMyTableView)forControlEvents:UIControlEventValueChanged];
+
+
+    
+}
+
+-(void)loadData{
+    
+    
     // Setting the url we want to take the json data
     NSURL *blogUrl = [NSURL URLWithString:@"http://www.dfg-team.com/api/get_recent_posts"];
     
@@ -42,14 +59,38 @@
     for (NSDictionary *bpDictionary in blogPostsArray) {
         BlogPost *blogPost = [BlogPost blogPostWithTitle:[bpDictionary objectForKey:@"title"]];
         blogPost.date   = [bpDictionary objectForKey:@"date"];
-        blogPost.author = [bpDictionary objectForKey:@"author"];
+        blogPost.author = [bpDictionary objectForKey:@"author.name"];
         blogPost.thumbnail = [bpDictionary objectForKey:@"thumbnail"];
         blogPost.url = [NSURL URLWithString:[bpDictionary objectForKey:@"url"]];
         [self.blogPosts addObject:blogPost];
     }
+
     
+    [self.tableView reloadData];
+
+}
+
+
+
+-(void)refreshMyTableView{
+    
+    //set the title while refreshing
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing the TableView"];
+    
+    
+    [self loadData];
+    
+    //set the date and time of refreshing
+    NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+    [formattedDate setDateFormat:@"MMM d, h:mm a"];
+    NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+    
+    //end the refreshing
+    [self.refreshControl endRefreshing];
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
