@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		09304A801ABAD0D0009B045A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09304A7F1ABAD0D0009B045A /* main.m */; };
 		09304A831ABAD0D0009B045A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09304A821ABAD0D0009B045A /* AppDelegate.m */; };
-		09304A861ABAD0D0009B045A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09304A851ABAD0D0009B045A /* ViewController.m */; };
-		09304A891ABAD0D0009B045A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09304A871ABAD0D0009B045A /* Main.storyboard */; };
 		09304A8B1ABAD0D0009B045A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09304A8A1ABAD0D0009B045A /* Images.xcassets */; };
 		09304A8E1ABAD0D0009B045A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09304A8C1ABAD0D0009B045A /* LaunchScreen.xib */; };
 		09304A9A1ABAD0D0009B045A /* BlogReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09304A991ABAD0D0009B045A /* BlogReaderTests.m */; };
+		09304AA41ABAD190009B045A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09304AA31ABAD190009B045A /* Main.storyboard */; };
+		0930C0271ABB45CC003A2947 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0930C0261ABB45CC003A2947 /* TableViewController.m */; };
+		0930C02A1ABDB56E003A2947 /* BlogPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 0930C0291ABDB56E003A2947 /* BlogPost.m */; };
+		098AE0101ABEF31C00FC1A07 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098AE00F1ABEF31C00FC1A07 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,18 @@
 		09304A7F1ABAD0D0009B045A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		09304A811ABAD0D0009B045A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09304A821ABAD0D0009B045A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		09304A841ABAD0D0009B045A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		09304A851ABAD0D0009B045A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		09304A881ABAD0D0009B045A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09304A8A1ABAD0D0009B045A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		09304A8D1ABAD0D0009B045A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		09304A931ABAD0D0009B045A /* BlogReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09304A981ABAD0D0009B045A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09304A991ABAD0D0009B045A /* BlogReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlogReaderTests.m; sourceTree = "<group>"; };
+		09304AA31ABAD190009B045A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0930C0251ABB45CC003A2947 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		0930C0261ABB45CC003A2947 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		0930C0281ABDB56E003A2947 /* BlogPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogPost.h; sourceTree = "<group>"; };
+		0930C0291ABDB56E003A2947 /* BlogPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogPost.m; sourceTree = "<group>"; };
+		098AE00E1ABEF31C00FC1A07 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		098AE00F1ABEF31C00FC1A07 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +88,14 @@
 			isa = PBXGroup;
 			children = (
 				09304A811ABAD0D0009B045A /* AppDelegate.h */,
+				098AE00E1ABEF31C00FC1A07 /* WebViewController.h */,
+				098AE00F1ABEF31C00FC1A07 /* WebViewController.m */,
+				0930C0281ABDB56E003A2947 /* BlogPost.h */,
+				0930C0291ABDB56E003A2947 /* BlogPost.m */,
 				09304A821ABAD0D0009B045A /* AppDelegate.m */,
-				09304A841ABAD0D0009B045A /* ViewController.h */,
-				09304A851ABAD0D0009B045A /* ViewController.m */,
-				09304A871ABAD0D0009B045A /* Main.storyboard */,
+				0930C0251ABB45CC003A2947 /* TableViewController.h */,
+				0930C0261ABB45CC003A2947 /* TableViewController.m */,
+				09304AA31ABAD190009B045A /* Main.storyboard */,
 				09304A8A1ABAD0D0009B045A /* Images.xcassets */,
 				09304A8C1ABAD0D0009B045A /* LaunchScreen.xib */,
 				09304A7D1ABAD0D0009B045A /* Supporting Files */,
@@ -199,7 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09304A891ABAD0D0009B045A /* Main.storyboard in Resources */,
+				09304AA41ABAD190009B045A /* Main.storyboard in Resources */,
 				09304A8E1ABAD0D0009B045A /* LaunchScreen.xib in Resources */,
 				09304A8B1ABAD0D0009B045A /* Images.xcassets in Resources */,
 			);
@@ -219,9 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09304A861ABAD0D0009B045A /* ViewController.m in Sources */,
 				09304A831ABAD0D0009B045A /* AppDelegate.m in Sources */,
+				098AE0101ABEF31C00FC1A07 /* WebViewController.m in Sources */,
+				0930C0271ABB45CC003A2947 /* TableViewController.m in Sources */,
 				09304A801ABAD0D0009B045A /* main.m in Sources */,
+				0930C02A1ABDB56E003A2947 /* BlogPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +256,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		09304A871ABAD0D0009B045A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09304A881ABAD0D0009B045A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		09304A8C1ABAD0D0009B045A /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -344,6 +348,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BlogReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,6 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BlogReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +418,7 @@
 				09304A9F1ABAD0D0009B045A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09304AA01ABAD0D0009B045A /* Build configuration list for PBXNativeTarget "BlogReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				09304AA21ABAD0D0009B045A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
