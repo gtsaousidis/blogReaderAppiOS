@@ -39,8 +39,15 @@
     // Setting the url we want to take the json data
     NSURL *blogUrl = [NSURL URLWithString:@"http://www.dfg-team.com/api/get_recent_posts"];
     
+    //request for async task
+    NSURLRequest *request = [NSURLRequest requestWithURL:blogUrl cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:50.0];
+    
+    
+    NSURLResponse *response;
+    
     //Downloading and Storing the data in local object
-    NSData *jsonData = [NSData dataWithContentsOfURL:blogUrl];
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+   
     
     NSError *error = nil;
     
