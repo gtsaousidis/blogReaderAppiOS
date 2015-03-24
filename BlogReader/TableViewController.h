@@ -11,5 +11,6 @@
 @interface TableViewController : UITableViewController
 
 @property (strong , nonatomic) NSMutableArray *blogPosts;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 @end

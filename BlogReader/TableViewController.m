@@ -19,15 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.indicator startAnimating];
    
     [self loadData];
     
-    //initialise the refresh controller
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    //set the title for pull request
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"pull to Refresh"];
-    //call he refresh function
-    [self.refreshControl addTarget:self action:@selector(refreshMyTableView)forControlEvents:UIControlEventValueChanged];
+//    //initialise the refresh controller
+//    self.refreshControl = [[UIRefreshControl alloc] init];
+//    //set the title for pull request
+//    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"pull to Refresh"];
+//    //call he refresh function
+//    [self.refreshControl addTarget:self action:@selector(refreshMyTableView)forControlEvents:UIControlEventValueChanged];
 
 
     
@@ -35,24 +36,32 @@
 
 -(void)loadData{
     
+   
     
     // Setting the url we want to take the json data
     NSURL *blogUrl = [NSURL URLWithString:@"http://www.dfg-team.com/api/get_recent_posts"];
     
     //request for async task
-    NSURLRequest *request = [NSURLRequest requestWithURL:blogUrl cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:50.0];
+    NSURLRequest *request = [NSURLRequest requestWithURL:blogUrl];
     
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        [self getReceiveData:data];
+    }];
+
+}
+
+////////////////////////////////////////////////////////////////
+/////////////////////////GET THE DATA///////////////////////////
+////////////////////////////////////////////////////////////////
+
+
+-(void)getReceiveData:(NSData *)jsondata{
     
-    NSURLResponse *response;
-    
-    //Downloading and Storing the data in local object
-    NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-   
     
     NSError *error = nil;
     
     //Converting the data for NSDictionary objects can understand them
-    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsondata options:NSJSONReadingAllowFragments error:&error];
     
     //initialize the nsmutablearray as array because we don't know the capasity,
     self.blogPosts = [NSMutableArray array];
@@ -71,12 +80,15 @@
         blogPost.url = [NSURL URLWithString:[bpDictionary objectForKey:@"url"]];
         [self.blogPosts addObject:blogPost];
     }
-
+    
     
     [self.tableView reloadData];
+    [self.indicator stopAnimating];
 
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 -(void)refreshMyTableView{

@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Latest Articles-->
         <scene sceneID="QL8-GS-obU">
             <objects>
                 <tableViewController id="NdQ-Ox-uR7" customClass="TableViewController" sceneMemberID="viewController">
@@ -13,6 +13,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="G4G-ar-h7E">
+                            <rect key="frame" x="0.0" y="130" width="320" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="hEA-gM-iqv" detailTextLabel="jKR-RN-KwC" style="IBUITableViewCellStyleSubtitle" id="jqB-Qf-mLZ">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -43,7 +48,10 @@
                             <outlet property="delegate" destination="NdQ-Ox-uR7" id="M88-Ae-E0l"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Yje-nP-ddt"/>
+                    <navigationItem key="navigationItem" title="Latest Articles" id="Yje-nP-ddt"/>
+                    <connections>
+                        <outlet property="indicator" destination="G4G-ar-h7E" id="t4W-qH-ifS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sb8-re-xNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
