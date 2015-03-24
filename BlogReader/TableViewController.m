@@ -23,12 +23,12 @@
    
     [self loadData];
     
-//    //initialise the refresh controller
-//    self.refreshControl = [[UIRefreshControl alloc] init];
-//    //set the title for pull request
-//    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"pull to Refresh"];
-//    //call he refresh function
-//    [self.refreshControl addTarget:self action:@selector(refreshMyTableView)forControlEvents:UIControlEventValueChanged];
+    //Initialise the refresh controller
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    //Set the title for pull request
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"pull to Refresh"];
+    //Call he refresh function
+    [self.refreshControl addTarget:self action:@selector(refreshMyTableView)forControlEvents:UIControlEventValueChanged];
 
 
     
@@ -36,7 +36,6 @@
 
 -(void)loadData{
     
-   
     
     // Setting the url we want to take the json data
     NSURL *blogUrl = [NSURL URLWithString:@"http://www.dfg-team.com/api/get_recent_posts"];
@@ -88,8 +87,15 @@
 }
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+///////////////////////END GET THE DATA/////////////////////////
+////////////////////////////////////////////////////////////////
 
+
+
+////////////////////////////////////////////////////////////////
+///////////////////////REFRESH THE DATA/////////////////////////
+////////////////////////////////////////////////////////////////
 
 -(void)refreshMyTableView{
     
@@ -109,6 +115,11 @@
     [self.refreshControl endRefreshing];
     
 }
+////////////////////////////////////////////////////////////////
+/////////////////////END REFRESH THE DATA///////////////////////
+////////////////////////////////////////////////////////////////
+
+
 
 
 - (void)didReceiveMemoryWarning {
