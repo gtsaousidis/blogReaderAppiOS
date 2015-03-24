@@ -9,6 +9,7 @@
 #import "TableViewController.h"
 #import "BlogPost.h"
 #import "WebViewController.h"
+#import "WebImageOperation.h"
 
 @interface TableViewController ()
 
@@ -23,15 +24,7 @@
    
     [self loadData];
     
-    //Initialise the refresh controller
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    //Set the title for pull request
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"pull to Refresh"];
-    //Call he refresh function
-    [self.refreshControl addTarget:self action:@selector(refreshMyTableView)forControlEvents:UIControlEventValueChanged];
-
-
-    
+    [self startTheRefresh];
 }
 
 -(void)loadData{
@@ -40,7 +33,7 @@
     // Setting the url we want to take the json data
     NSURL *blogUrl = [NSURL URLWithString:@"http://www.dfg-team.com/api/get_recent_posts"];
     
-    //request for async task
+    // Request for async task
     NSURLRequest *request = [NSURLRequest requestWithURL:blogUrl];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -96,6 +89,20 @@
 ////////////////////////////////////////////////////////////////
 ///////////////////////REFRESH THE DATA/////////////////////////
 ////////////////////////////////////////////////////////////////
+
+
+-(void)startTheRefresh{
+
+    //Initialise the refresh controller
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    //Set the title for pull request
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"pull to Refresh"];
+    //Call he refresh function
+    [self.refreshControl addTarget:self action:@selector(refreshMyTableView)forControlEvents:UIControlEventValueChanged];
+
+}
+
+
 
 -(void)refreshMyTableView{
     
@@ -155,11 +162,15 @@
     if ([blogPost.thumbnail isKindOfClass:[NSString class]]) {
         
         //Downloading the image
+        [WebImageOperation loadFromURL:blogPost.thumbnailUrl callback:^(UIImage *image) {
+           cell.imageView.image = image;
+        }];
         
-        NSData *imageData = [NSData dataWithContentsOfURL:blogPost.thumbnailUrl];
-        UIImage *image = [UIImage imageWithData:imageData];
         
-        cell.imageView.image = image;
+//        NSData *imageData = [NSData dataWithContentsOfURL:blogPost.thumbnailUrl];
+//        UIImage *image = [UIImage imageWithData:imageData];
+        
+        
     }
     else {
         cell.imageView.image = [UIImage imageNamed:@"placeholder.png"];
