@@ -31,37 +31,7 @@
     [self.indicator startAnimating];
     
     
-    // Internet is reachable
-    self.internetReachableFoo.reachableBlock = ^(Reachability*reach)
-    {
-        // Update the UI on the main thread
-        
-        
-        [self loadData];
-        
-        [self startTheRefresh];
-       
-    };
-    
-    // Internet is not reachable
-    self.internetReachableFoo.unreachableBlock = ^(Reachability*reach)
-    {
-        // Update the UI on the main thread
-        NSString *messageX =   [NSString stringWithFormat: @"There is no internet connection \n"];
-        
-        
-        UIAlertView *alertForInternetConnection = [[UIAlertView alloc]initWithTitle:nil
-                                                                 message:messageX
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"Cancel"
-                                                       otherButtonTitles:nil];
-        
-        [alertForInternetConnection show];
-        
-        
-    };
-    
-    [self.internetReachableFoo startNotifier];
+    [self chechingForInternet];
     
     
     
@@ -90,14 +60,51 @@
 }
 
 
+
+
+-(void)chechingForInternet
+{
+    
+    __weak typeof(self) weakSelf = self;
+    
+// Internet is reachable
+self.internetReachableFoo.reachableBlock = ^(Reachability*reach)
+{
+    // Update the UI on the main thread
+    
+    [weakSelf loadData];
+    
+    [weakSelf startTheRefresh];
+    
+};
+
+// Internet is not reachable
+self.internetReachableFoo.unreachableBlock = ^(Reachability*reach)
+{
+    // Update the UI on the main thread
+    NSString *messageX =   [NSString stringWithFormat: @"There is no internet connection \n"];
+    
+    
+    UIAlertView *alertForInternetConnection = [[UIAlertView alloc]initWithTitle:nil
+                                                                        message:messageX
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"Cancel"
+                                                              otherButtonTitles:nil];
+    
+    [alertForInternetConnection show];
+    
+    
+};
+
+[self.internetReachableFoo startNotifier];
+}
+
+
+
+
 ////////////////////////////////////////////////////////////////
 /////////////////////////GET THE DATA///////////////////////////
 ////////////////////////////////////////////////////////////////
-
-
-
-
-
 
 -(void)getReceiveData:(NSData *)jsondata{
     
@@ -164,7 +171,7 @@
     self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing the TableView"];
     
     
-    [self loadData];
+    [self chechingForInternet];
     
     //set the date and time of refreshing
     NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
