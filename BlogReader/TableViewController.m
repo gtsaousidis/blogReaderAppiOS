@@ -10,6 +10,7 @@
 #import "BlogPost.h"
 #import "WebViewController.h"
 #import "WebImageOperation.h"
+#import "Reachability.h"
 
 @interface TableViewController ()
 
@@ -17,14 +18,54 @@
 
 @implementation TableViewController
 
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.indicator startAnimating];
-   
-    [self loadData];
     
-    [self startTheRefresh];
+    self.internetReachableFoo = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    [self.indicator startAnimating];
+    
+    
+    // Internet is reachable
+    self.internetReachableFoo.reachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        
+        
+        [self loadData];
+        
+        [self startTheRefresh];
+       
+    };
+    
+    // Internet is not reachable
+    self.internetReachableFoo.unreachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        NSString *messageX =   [NSString stringWithFormat: @"There is no internet connection \n"];
+        
+        
+        UIAlertView *alertForInternetConnection = [[UIAlertView alloc]initWithTitle:nil
+                                                                 message:messageX
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"Cancel"
+                                                       otherButtonTitles:nil];
+        
+        [alertForInternetConnection show];
+        
+        
+    };
+    
+    [self.internetReachableFoo startNotifier];
+    
+    
+    
+    
 }
 
 -(void)loadData{
@@ -42,9 +83,20 @@
 
 }
 
+// Checks if we have an internet connection or not
+- (void)testInternetConnection
+{
+    
+}
+
+
 ////////////////////////////////////////////////////////////////
 /////////////////////////GET THE DATA///////////////////////////
 ////////////////////////////////////////////////////////////////
+
+
+
+
 
 
 -(void)getReceiveData:(NSData *)jsondata{
@@ -78,6 +130,8 @@
     [self.indicator stopAnimating];
 
 }
+
+
 
 
 ////////////////////////////////////////////////////////////////

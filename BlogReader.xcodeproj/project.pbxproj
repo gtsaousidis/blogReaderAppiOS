@@ -16,6 +16,7 @@
 		0930C0271ABB45CC003A2947 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0930C0261ABB45CC003A2947 /* TableViewController.m */; };
 		0930C02A1ABDB56E003A2947 /* BlogPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 0930C0291ABDB56E003A2947 /* BlogPost.m */; };
 		098AE0101ABEF31C00FC1A07 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098AE00F1ABEF31C00FC1A07 /* WebViewController.m */; };
+		09BC44A31AC31305004CFE23 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BC44A21AC31305004CFE23 /* Reachability.m */; };
 		09EAA9051AC1FF4000A628B3 /* WebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EAA9041AC1FF4000A628B3 /* WebImageOperation.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,8 @@
 		0930C0291ABDB56E003A2947 /* BlogPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogPost.m; sourceTree = "<group>"; };
 		098AE00E1ABEF31C00FC1A07 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		098AE00F1ABEF31C00FC1A07 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		09BC44A11AC31305004CFE23 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		09BC44A21AC31305004CFE23 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		09EAA9031AC1FF4000A628B3 /* WebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageOperation.h; sourceTree = "<group>"; };
 		09EAA9041AC1FF4000A628B3 /* WebImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,12 +101,14 @@
 				09304A821ABAD0D0009B045A /* AppDelegate.m */,
 				0930C0251ABB45CC003A2947 /* TableViewController.h */,
 				0930C0261ABB45CC003A2947 /* TableViewController.m */,
+				09EAA9031AC1FF4000A628B3 /* WebImageOperation.h */,
+				09EAA9041AC1FF4000A628B3 /* WebImageOperation.m */,
+				09BC44A11AC31305004CFE23 /* Reachability.h */,
+				09BC44A21AC31305004CFE23 /* Reachability.m */,
 				09304AA31ABAD190009B045A /* Main.storyboard */,
 				09304A8A1ABAD0D0009B045A /* Images.xcassets */,
 				09304A8C1ABAD0D0009B045A /* LaunchScreen.xib */,
 				09304A7D1ABAD0D0009B045A /* Supporting Files */,
-				09EAA9031AC1FF4000A628B3 /* WebImageOperation.h */,
-				09EAA9041AC1FF4000A628B3 /* WebImageOperation.m */,
 			);
 			path = BlogReader;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				09304A831ABAD0D0009B045A /* AppDelegate.m in Sources */,
 				098AE0101ABEF31C00FC1A07 /* WebViewController.m in Sources */,
 				09EAA9051AC1FF4000A628B3 /* WebImageOperation.m in Sources */,
+				09BC44A31AC31305004CFE23 /* Reachability.m in Sources */,
 				0930C0271ABB45CC003A2947 /* TableViewController.m in Sources */,
 				09304A801ABAD0D0009B045A /* main.m in Sources */,
 				0930C02A1ABDB56E003A2947 /* BlogPost.m in Sources */,

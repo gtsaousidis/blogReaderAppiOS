@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
 @interface TableViewController : UITableViewController
 
 @property (strong , nonatomic) NSMutableArray *blogPosts;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+
+@property(strong, nonatomic) Reachability *internetReachableFoo;
 
 @end
