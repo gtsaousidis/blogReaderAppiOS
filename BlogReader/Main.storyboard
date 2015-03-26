@@ -57,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="1333" y="563"/>
         </scene>
-        <!--Web View Controller-->
+        <!--View Article-->
         <scene sceneID="9Yo-t5-BsB">
             <objects>
                 <viewController id="2Rj-j7-J6p" customClass="WebViewController" sceneMemberID="viewController">
@@ -76,7 +76,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lrb-5M-HZQ"/>
+                    <navigationItem key="navigationItem" title="View Article" id="lrb-5M-HZQ"/>
                     <connections>
                         <outlet property="webView" destination="bAa-qK-yLw" id="QrV-fh-JpK"/>
                     </connections>

@@ -21,6 +21,7 @@
     
     [self.webView loadRequest:urlRequest];
     
+    [self.webView reload];
     
     //ΑDD SHARE ACTION//
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]

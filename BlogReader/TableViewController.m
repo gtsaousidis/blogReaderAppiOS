@@ -33,9 +33,6 @@
     
     [self chechingForInternet];
     
-    
-    
-    
 }
 
 -(void)loadData{
@@ -49,6 +46,8 @@
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         [self getReceiveData:data];
+        
+        
     }];
 
 }
@@ -126,7 +125,7 @@ self.internetReachableFoo.unreachableBlock = ^(Reachability*reach)
     for (NSDictionary *bpDictionary in blogPostsArray) {
         BlogPost *blogPost = [BlogPost blogPostWithTitle:[bpDictionary objectForKey:@"title"]];
         blogPost.date   = [bpDictionary objectForKey:@"date"];
-        blogPost.author = [bpDictionary objectForKey:@"author.name"];
+        blogPost.author = [bpDictionary valueForKeyPath:@"author.name"];
         blogPost.thumbnail = [bpDictionary objectForKey:@"thumbnail"];
         blogPost.url = [NSURL URLWithString:[bpDictionary objectForKey:@"url"]];
         [self.blogPosts addObject:blogPost];
@@ -137,8 +136,6 @@ self.internetReachableFoo.unreachableBlock = ^(Reachability*reach)
     [self.indicator stopAnimating];
 
 }
-
-
 
 
 ////////////////////////////////////////////////////////////////
@@ -213,7 +210,6 @@ self.internetReachableFoo.unreachableBlock = ^(Reachability*reach)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    
     // Configure the cell...
     
     BlogPost *blogPost =[self.blogPosts objectAtIndex:indexPath.row];
@@ -224,7 +220,9 @@ self.internetReachableFoo.unreachableBlock = ^(Reachability*reach)
         
         //Downloading the image
         [WebImageOperation loadFromURL:blogPost.thumbnailUrl callback:^(UIImage *image) {
-           cell.imageView.image = image;
+            cell.imageView.image = image;
+            [cell setNeedsLayout];
+            
         }];
         
         
@@ -239,6 +237,9 @@ self.internetReachableFoo.unreachableBlock = ^(Reachability*reach)
     
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Author: %@ | Date: %@",blogPost.author, blogPost.formattedDate];
     cell.textLabel.text = blogPost.title;
+    
+    
+    
     
     return cell;
 }

@@ -34,7 +34,12 @@
 -(NSString *) formattedDate{
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"el_GR"];
+    [dateFormatter setLocale:locale];
+    
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *tempDate = [dateFormatter dateFromString:self.date];
     
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
