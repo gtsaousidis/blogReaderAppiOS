@@ -17,12 +17,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    NSURL *url = [NSURL URLWithString:@"http://blog.teamtreehouse.com"];
-
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.blogPostUrl];
     
     [self.webView loadRequest:urlRequest];
+    
+    
+    //ΑDD SHARE ACTION//
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
+                                    initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                    target:self
+                                    action:@selector(shareUrl:)];
+    self.navigationItem.rightBarButtonItem = shareButton;
     
 }
 
@@ -30,6 +35,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+////SHARE METHOD////
+- (void)shareUrl:(NSURL *)url
+{
+    NSMutableArray *sharingItems = [NSMutableArray new];
+    
+    if (self.blogPostUrl) {
+        [sharingItems addObject:self.blogPostUrl];
+    }
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
 
 /*
 #pragma mark - Navigation
@@ -40,5 +60,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 @end
